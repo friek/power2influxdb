@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  power2influxdb:
+    build:
+      context: .
+    restart: always
+    env_file:
+      - config.env
