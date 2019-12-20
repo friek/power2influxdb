@@ -5,7 +5,7 @@ from datetime import datetime
 import paho.mqtt.client as mqtt
 import requests
 
-from settings import MQTT_HOST, MQTT_PORT, MQTT_KEEPALIVE, TOPIC
+from settings import MQTT_HOST, MQTT_PORT, MQTT_KEEPALIVE, TOPIC, INFLUXDB_URL
 
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -38,8 +38,8 @@ def send_influx_data(meter, value, timestamp=None, table="usage"):
     timestamp = "%s%09d" % (str(int(timestamp)), 0)
 
     post_data = "{0},meter={1} value={2} {3}".format(table, meter, value, timestamp)
-    print(f"table={table}, meter={meter}, value={value}, timestamp={timestamp}")
-    requests.post("http://192.168.11.12:8086/write?db=energy", data=post_data)
+    print(f"table={table}, meter={meter}, value={value}, timestamp={timestamp}, url={INFLUXDB_URL}")
+    requests.post(INFLUXDB_URL, data=post_data)
 
 
 def on_message(*args):
