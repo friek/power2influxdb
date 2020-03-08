@@ -1,3 +1,4 @@
 /.idea
 /venv
 /config.env
+/docker-compose.override.yml
