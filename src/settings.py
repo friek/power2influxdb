@@ -8,3 +8,5 @@ INFLUXDB_HOST = os.getenv("INFLUXDB_HOST")
 INFLUXDB_DB = os.getenv("INFLUXDB_DB", "energy")
 INFLUXDB_PORT = int(os.getenv("INFLUXDB_PORT", 8086))
 INFLUXDB_URL = f"http://{INFLUXDB_HOST}:{INFLUXDB_PORT}/write?db={INFLUXDB_DB}"
+DEBUG = bool(os.getenv("DEBUG_LOG", 0))
+MAX_DELAY = int(os.getenv("MAX_DELAY", 15))
