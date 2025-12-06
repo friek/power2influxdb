@@ -9,4 +9,4 @@ pytz==2019.3
 pytzdata==2019.3
 requests==2.32.4
 six==1.13.0
-urllib3==2.5.0
+urllib3==2.6.0
